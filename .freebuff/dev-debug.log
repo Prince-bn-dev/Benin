@@ -1,0 +1,37 @@
+   ▲ Next.js 15.5.25
+   - Local:        http://localhost:5130
+   - Network:      http://192.168.1.64:5130
+
+ ✓ Starting...
+ ✓ Ready in 8.9s
+ ○ Compiling / ...
+ ✓ Compiled / in 4.2s (1428 modules)
+ ⨯ [Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.] {
+  digest: '2722724953'
+}
+ GET / 500 in 6579ms
+ ✓ Compiled in 69ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1081ms (1291 modules)
+ GET / 200 in 1803ms
+ ✓ Compiled in 1847ms (1314 modules)
+ ⨯ [Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.] {
+  digest: '4224474959'
+}
+ GET / 500 in 1652ms
+ ✓ Compiled in 3s (1304 modules)
+ GET / 200 in 1317ms
+ ✓ Compiled in 2.1s (1311 modules)
+ GET / 200 in 728ms
+ ✓ Compiled in 1974ms (1258 modules)
+ GET / 200 in 739ms
+ ✓ Compiled in 987ms (1303 modules)
+ ⨯ [Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.] {
+  digest: '974558637'
+}
+ GET / 500 in 1295ms
+ ✓ Compiled in 154ms
+ ○ Compiling / ...
+ ✓ Compiled / in 7s (1508 modules)
+ GET / 200 in 8363ms
+[?25h

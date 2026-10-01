@@ -1,0 +1,272 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.section {
+  @include section-padding;
+  background-image: url(/images/entreprise.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.inner {
+  @include container;
+}
+
+.head {
+  text-align: center;
+  @include flex(column, flex-start, center, 0.6rem);
+  margin-bottom: clamp(2rem, 5vw, 3.4rem);
+}
+
+.overline {
+  @include overline($color-red);
+  &::before {
+    display: none;
+  }
+}
+
+.title {
+  @include display($fs-h2, $color-text);
+}
+
+.lead {
+  color: $color-text-muted;
+  line-height: 1.7;
+}
+
+// ---- Slider ----------------------------------------------------------------------
+.slider {
+  --card-w: 250px;
+  --gap: clamp(0.8rem, 1.8vw, 1.5rem);
+  --lift: clamp(1.4rem, 3vw, 2.6rem);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  @include tablet {
+    --card-w: min(62vw, 250px);
+  }
+}
+
+.viewport {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  // marge haute pour la carte qui remonte, marge basse pour l'ombre
+  padding-block: calc(var(--lift) + 0.6rem) 1.4rem;
+}
+
+.track {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap);
+  padding-inline: calc(50% - var(--card-w) / 2);
+  transform: translateX(calc(var(--i, 0) * -1 * (var(--card-w) + var(--gap))));
+  transition: transform $transition-med;
+  will-change: transform;
+}
+
+.card {
+  position: relative;
+  flex: 0 0 var(--card-w);
+  width: var(--card-w);
+  margin: 0;
+  cursor: pointer;
+  opacity: 0.5;
+  transform: translateY(0) scale(0.92);
+  transform-origin: center bottom;
+  transition:
+    transform $transition-med,
+    opacity $transition-fast;
+
+  .photo {
+    position: relative;
+    border-radius: $radius-md;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+    border: 1px solid rgba(28, 36, 32, 0.1);
+    background: $color-surface;
+    aspect-ratio: 280 / 380;
+
+    // voile bas pour la lisibilité du titre superposé
+    &::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 55%;
+      background: linear-gradient(to top, rgba(10, 24, 16, 0.72), transparent);
+    }
+  }
+
+  .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-med;
+  }
+
+  &:hover .img {
+    transform: scale(1.05);
+  }
+}
+
+// Carte sélectionnée : recentrée par le track, remontée et mise en avant
+.active {
+  opacity: 1;
+  transform: translateY(calc(var(--lift) * -1)) scale(1.05);
+  cursor: default;
+
+  .photo {
+    border-width: 6px;
+    box-shadow: $shadow-lg;
+  }
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 0.7rem 0.85rem;
+  text-align: left;
+
+  .name {
+    display: block;
+    font-family: $font-display;
+    font-size: 0.95rem;
+    color: #fdfbf4;
+  }
+
+  .tagline {
+    display: block;
+    font-size: 0.68rem;
+    color: rgba(253, 251, 244, 0.85);
+    margin-top: 0.1rem;
+  }
+}
+
+// ---- Navigation ------------------------------------------------------------------
+.nav {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid rgba(28, 36, 32, 0.18);
+  background: rgba(253, 251, 244, 0.85);
+  color: $color-text;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background $transition-fast,
+    transform $transition-fast,
+    opacity $transition-fast;
+
+  &:hover:not(:disabled) {
+    background: #fdfbf4;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  @include focus-ring;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.dots {
+  @include flex(row, center, center, 0.55rem);
+  margin-top: 1rem;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(28, 36, 32, 0.25);
+  cursor: pointer;
+  transition:
+    width $transition-fast,
+    background $transition-fast;
+
+  @include focus-ring;
+}
+
+.dotActive {
+  width: 1.6rem;
+  border-radius: $radius-sm;
+  background: $color-red;
+}
+
+// ---- CTA -------------------------------------------------------------------------
+.ctaBlock {
+  margin-top: clamp(2rem, 5vw, 3.4rem);
+  @include flex(column, flex-start, center, 0.9rem);
+  text-align: center;
+}
+
+.ctaOverline {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $color-red;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fdfbf4;
+  background: $color-green-deep;
+  border-radius: $radius-sm;
+  padding: 0.9rem 1.6rem;
+  transition:
+    transform $transition-fast,
+    box-shadow $transition-fast,
+    background $transition-fast;
+
+  &:hover {
+    background: $color-green;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+
+    span {
+      transform: translateX(4px);
+    }
+  }
+
+  span {
+    transition: transform $transition-fast;
+  }
+
+  @include focus-ring;
+}
+
+// ---- Accessibilité ---------------------------------------------------------------
+@media (prefers-reduced-motion: reduce) {
+  .track,
+  .card,
+  .img {
+    transition: none;
+  }
+}

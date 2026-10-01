@@ -1,0 +1,179 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.hero {
+  position: relative;
+  min-height: min(100vh, 1208px);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  // Le mockup est très sombre sur le tiers supérieur : on renforce la lisibilité
+  background: #0d2b1d;
+}
+
+.bg {
+  position: absolute;
+  inset: -8% 0;
+  z-index: 0;
+}
+
+.bgImg {
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+// Voiles pour le contraste du texte (haut) et la transition vers les stats (bas)
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(7, 24, 16, 0.55), transparent 34%),
+    linear-gradient(to top, rgba(7, 24, 16, 0.72), transparent 30%);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  @include container;
+  text-align: center;
+  padding-top: clamp(8.5rem, 15vh, 11rem);
+  color: #fdfbf4;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: clamp(2.7rem, 6vw, 4.65rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: 0.005em;
+  max-width: 18ch;
+  margin-inline: auto;
+  text-wrap: balance;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
+}
+
+.gold {
+  color: $color-gold;
+  font-style: italic;
+}
+
+.subtitle {
+  margin-top: clamp(1rem, 2.5vw, 1.6rem);
+  font-size: clamp(0.98rem, 1.6vw, 1.15rem);
+  line-height: 1.75;
+  color: rgba(253, 251, 244, 0.92);
+  max-width: 62ch;
+  margin-inline: auto;
+}
+
+.ctas {
+  margin-top: clamp(1.6rem, 3.5vw, 2.6rem);
+  @include flex(row, center, center, 1rem);
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.btnPrimary,
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 10px;
+  min-height: 4rem;
+  padding: 0.85rem 1.35rem;
+  transition:
+    transform $transition-fast,
+    box-shadow $transition-fast,
+    background $transition-fast;
+  @include focus-ring;
+}
+
+.btnPrimary {
+  color: $color-gold;
+  border: 1.5px solid rgba($color-gold, 0.85);
+  background: rgba(5, 47, 29, 0.62);
+  backdrop-filter: blur(6px);
+
+  &:hover {
+    background: rgba($color-gold, 0.16);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba($color-gold, 0.25);
+  }
+
+  .arrow {
+    transition: transform $transition-fast;
+  }
+
+  &:hover .arrow {
+    transform: translateX(4px);
+  }
+}
+
+.btnGhost {
+  color: #fdfbf4;
+  border: 1.5px solid rgba(253, 251, 244, 0.55);
+  background: rgba(8, 38, 26, 0.18);
+  backdrop-filter: blur(6px);
+
+  &:hover {
+    background: rgba(253, 251, 244, 0.14);
+    transform: translateY(-2px);
+  }
+
+  .bookIcon {
+    font-size: 0.95rem;
+    opacity: 0.9;
+  }
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.mouse {
+  display: block;
+  width: 24px;
+  height: 38px;
+  border: 2px solid rgba(253, 251, 244, 0.55);
+  border-radius: $radius-pill;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 4px;
+    height: 8px;
+    margin-left: -2px;
+    border-radius: $radius-pill;
+    background: rgba(253, 251, 244, 0.8);
+    animation: wheel 1.8s infinite;
+  }
+}
+
+@keyframes wheel {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  70% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,119 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  position: relative;
+  background:
+    radial-gradient(640px 300px at 50% 0%, rgba($color-gold, 0.12), transparent 65%),
+    linear-gradient(180deg, #0d3d24, #072a18);
+  color: #fdfbf4;
+  overflow: hidden;
+}
+
+.decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  @include flex(row, space-between, flex-start, 0);
+
+  img:first-child {
+    transform: translate(-24%, 42%) rotate(-12deg);
+  }
+
+  img:last-child {
+    transform: translate(24%, 38%) rotate(14deg);
+  }
+}
+
+.inner {
+  position: relative;
+  @include container;
+  padding-block: clamp(3.4rem, 8vw, 6.4rem);
+  text-align: center;
+  @include flex(column, flex-start, center, 1.1rem);
+}
+
+.overline {
+  @include overline($color-red);
+  &::before {
+    display: none;
+  }
+}
+
+.title {
+  @include display($fs-h2, #fdfbf4);
+}
+
+.text {
+  color: rgba(253, 251, 244, 0.82);
+  line-height: 1.75;
+  max-width: 64ch;
+}
+
+.stats {
+  margin-top: 1.2rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 780px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat {
+  @include flex(column, flex-start, center, 0.3rem);
+}
+
+.statValue {
+  font-family: $font-display;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  color: $color-gold;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(253, 251, 244, 0.75);
+}
+
+.cta {
+  margin-top: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fdfbf4;
+  background: $color-green;
+  border-radius: $radius-sm;
+  padding: 0.9rem 1.6rem;
+  transition:
+    transform $transition-fast,
+    box-shadow $transition-fast,
+    background $transition-fast;
+
+  &:hover {
+    background: #029a5b;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba($color-green, 0.35);
+
+    span {
+      transform: translateX(4px);
+    }
+  }
+
+  span {
+    transition: transform $transition-fast;
+  }
+
+  @include focus-ring;
+}

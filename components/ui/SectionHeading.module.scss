@@ -1,0 +1,54 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: clamp(1.8rem, 4vw, 3rem);
+
+  &.center {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.overline {
+  @include overline($color-red);
+
+  &::before {
+    display: none; // pas de tiret : le design n'en a pas
+  }
+}
+
+// Variantes de teinte du surtitre
+.red .overline {
+  color: $color-red;
+}
+
+.gold .overline {
+  color: $color-gold;
+}
+
+.green .overline {
+  color: $color-green;
+}
+
+.title {
+  @include display($fs-h2, $color-text);
+  max-width: 22ch;
+
+  .center & {
+    max-width: 26ch;
+  }
+}
+
+.lead {
+  color: $color-text-muted;
+  max-width: 58ch;
+  line-height: 1.7;
+
+  .center & {
+    margin-inline: auto;
+  }
+}

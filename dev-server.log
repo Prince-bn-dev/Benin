@@ -1,0 +1,10 @@
+   ▲ Next.js 15.5.25
+   - Local:        http://localhost:3100
+   - Network:      http://192.168.1.64:3100
+
+ ✓ Starting...
+ ✓ Ready in 5.6s
+ ○ Compiling / ...
+ ✓ Compiled / in 24.7s (1539 modules)
+ GET / 200 in 26483ms
+ GET / 200 in 380ms

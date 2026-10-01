@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="num" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d4a2c"/><stop offset="1" stop-color="#0a2e1c"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="460" fill="url(#num)"/>
+  <g stroke="#008751" stroke-width="2" opacity=".6">
+    <path d="M110 90 L210 60 M210 60 L330 110 M330 110 L470 70 M470 70 L560 140 M110 90 L200 220 M200 220 L330 110 M330 110 L420 250 M420 250 L560 140 M200 220 L300 340 M300 340 L420 250 M300 340 L180 390"/>
+  </g>
+  <g fill="#fcd116">
+    <circle cx="110" cy="90" r="8"/><circle cx="210" cy="60" r="6"/><circle cx="330" cy="110" r="9"/>
+    <circle cx="470" cy="70" r="6"/><circle cx="560" cy="140" r="7"/><circle cx="200" cy="220" r="8"/>
+    <circle cx="420" cy="250" r="9"/><circle cx="300" cy="340" r="7"/><circle cx="180" cy="390" r="6"/>
+  </g>
+  <g transform="translate(250 150)" fill="none" stroke="#fdfbf4" stroke-width="6">
+    <rect x="0" y="0" width="150" height="100" rx="12" opacity=".85"/>
+    <path d="M30 40 H120 M30 62 H96" stroke="#fcd116" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>

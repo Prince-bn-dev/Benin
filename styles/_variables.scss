@@ -1,0 +1,61 @@
+// ==========================================================================
+// VARIABLES GLOBALES — Bénin, Terre de Culture
+// Palette officielle inspirée du drapeau béninois + tons terre & crème
+// ==========================================================================
+
+// ---- Couleurs de marque ---------------------------------------------------
+$color-green: #008751; // Vert principal (drapeau)
+$color-green-deep: #00512f; // Vert forêt profond
+$color-green-dark: #0b2e20; // Fond sombre alternatif
+$color-gold: #fcd116; // Jaune / Or (drapeau)
+$color-gold-deep: #d4af37; // Or antique
+$color-red: #e8112d; // Rouge (drapeau)
+
+// ---- Fonds & surfaces ------------------------------------------------------
+$color-bg: #fdfbf7; // Arrière-plan beige / crème
+$color-bg-soft: #f6f1e7; // Beige légèrement plus soutenu
+$color-bg-dark: #0f1c14; // Section sombre (citation)
+$color-surface: #ffffff; // Cartes / surfaces claires
+
+// ---- Texte & overlays ------------------------------------------------------
+$color-text: #1c2420; // Texte sombre principal
+$color-text-muted: #5c6b62; // Texte secondaire
+$color-text-light: #f4efe3; // Texte sur fond sombre
+$overlay-culture: rgba(11, 46, 32, 0.55); // Overlay culturel sur images
+$overlay-deep: rgba(9, 30, 21, 0.78); // Overlay renforcé
+
+// ---- Effets ----------------------------------------------------------------
+$shadow-sm: 0 2px 8px rgba(15, 28, 20, 0.08);
+$shadow-md: 0 10px 30px rgba(15, 28, 20, 0.12);
+$shadow-lg: 0 24px 60px rgba(15, 28, 20, 0.18);
+$backdrop-blur: saturate(180%) blur(14px);
+
+// ---- Rayons & bordures -----------------------------------------------------
+$radius-sm: 8px;
+$radius-md: 14px;
+$radius-lg: 22px;
+$radius-pill: 999px;
+$border-subtle: 1px solid rgba(28, 36, 32, 0.08);
+
+// ---- Typographie -----------------------------------------------------------
+// Les polices sont chargées via next/font dans app/layout.tsx
+// (variables CSS --font-display / --font-body, avec fallback local)
+$font-display: var(--font-display, 'Marcellus'), 'Georgia', serif;
+$font-body: var(--font-body, 'Outfit'), 'Segoe UI', system-ui, sans-serif;
+
+$fs-hero: clamp(2.6rem, 6.4vw, 5rem);
+$fs-h2: clamp(1.9rem, 3.6vw, 2.9rem);
+$fs-h3: clamp(1.2rem, 2vw, 1.5rem);
+$fs-body: 1rem;
+$fs-small: 0.875rem;
+
+// ---- Layout ----------------------------------------------------------------
+$container-max: 1180px;
+$gutter: clamp(1rem, 4vw, 2.5rem);
+$section-gap: clamp(3.5rem, 8vw, 6.5rem);
+$nav-height: 76px;
+
+// ---- Transitions -----------------------------------------------------------
+$ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+$transition-fast: 180ms $ease-out;
+$transition-med: 320ms $ease-out;

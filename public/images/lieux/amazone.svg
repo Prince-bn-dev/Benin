@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 380" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="az-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9ec9d8"/><stop offset="1" stop-color="#c8b28a"/>
+    </linearGradient>
+    <linearGradient id="az-brz" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a9764a"/><stop offset="1" stop-color="#5c3a1e"/>
+    </linearGradient>
+  </defs>
+  <rect width="280" height="380" fill="url(#az-sky)"/>
+  <g transform="translate(140 200)">
+    <circle cx="0" cy="-96" r="30" fill="url(#az-brz)"/>
+    <path d="M-26 -104 C-20 -134 20 -134 26 -104 C12 -118 -12 -118 -26 -104 Z" fill="#3f2812"/>
+    <path d="M-30 -66 C-46 -30 -50 30 -44 84 L44 84 C50 30 46 -30 30 -66 C18 -52 -18 -52 -30 -66 Z" fill="url(#az-brz)"/>
+    <path d="M-30 -60 C-44 -24 -48 20 -44 60 L-30 60 C-34 20 -32 -22 -22 -54 Z" fill="#3f2812" opacity=".4"/>
+    <path d="M28 -60 L74 -110 L82 -102 L36 -50 Z" fill="url(#az-brz)"/>
+    <rect x="72" y="-160" width="9" height="66" rx="4" fill="#4d3018"/>
+    <path d="M76 -160 L76 -190 L88 -176 L76 -160" fill="none" stroke="#4d3018" stroke-width="7"/>
+    <path d="M-44 84 L-52 138 L-20 138 L-14 90 Z" fill="#4d3018"/>
+    <path d="M44 84 L52 138 L20 138 L14 90 Z" fill="#4d3018"/>
+    <path d="M-40 -30 C-16 -18 16 -18 40 -30 L38 -8 C16 -20 -16 -20 -38 -8 Z" fill="#e3b505" opacity=".7"/>
+  </g>
+  <path d="M60 330 C100 310 180 310 220 330 L232 356 C180 338 100 338 48 356 Z" fill="#8a6a3a"/>
+  <rect y="356" width="280" height="24" fill="#6d5228"/>
+</svg>

@@ -1,0 +1,208 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  transition:
+    background $transition-med,
+    box-shadow $transition-med;
+
+  // Transparent sur le hero, verre dépoli dès le scroll
+  &:not(.scrolled) {
+    background: linear-gradient(
+      to bottom,
+      rgba(7, 26, 17, 0.5),
+      rgba(7, 26, 17, 0)
+    );
+  }
+
+  &.scrolled {
+    background: rgba(8, 42, 24, 0.88);
+    backdrop-filter: $backdrop-blur;
+    -webkit-backdrop-filter: $backdrop-blur;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.28);
+  }
+}
+
+.inner {
+  @include container;
+}
+
+// ---- Rangée 1 : marque centrée -------------------------------------------------
+.brandRow {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.55rem;
+}
+
+.brand {
+  @include flex(column, center, center, 1px);
+  @include focus-ring;
+}
+
+.logo {
+  border-radius: $radius-pill;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: transform $transition-med;
+
+  &:hover {
+    transform: rotate(-6deg) scale(1.06);
+  }
+}
+
+.brandName {
+  font-family: $font-display;
+  font-size: 1.08rem;
+  letter-spacing: 0.05em;
+  color: #faf7ee;
+  white-space: nowrap;
+}
+
+// ---- Rangée 2 : liens + boussole + CTA ------------------------------------------
+.navRow {
+  @include flex(row, center, center, clamp(1rem, 2vw, 2rem));
+  padding-block: 0.5rem 0.65rem;
+}
+
+.links {
+  @include flex(row, center, center, clamp(1rem, 2.2vw, 2rem));
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.link {
+  font-family: $font-body;
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: rgba(250, 247, 238, 0.88);
+  padding-block: 0.35rem;
+  position: relative;
+  @include focus-ring;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: $radius-pill;
+    background: $color-gold;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $transition-med;
+  }
+
+  &:hover {
+    color: #fff;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.linkActive::after {
+  background: $color-red;
+  transform: scaleX(1);
+}
+
+.navRight {
+  @include flex(row, center, center, 0.9rem);
+  padding-left: 0.9rem;
+  border-left: 1px solid rgba(250, 247, 238, 0.45);
+}
+
+.compass {
+  color: rgba(250, 247, 238, 0.9);
+  display: inline-flex;
+  transition:
+    transform $transition-med,
+    color $transition-fast;
+
+  &:hover {
+    transform: rotate(28deg);
+    color: $color-gold;
+  }
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #fdfbf4;
+  background: $color-green;
+  border-radius: $radius-pill;
+  padding: 0.62rem 1.2rem;
+  transition:
+    transform $transition-fast,
+    box-shadow $transition-fast,
+    background $transition-fast;
+  @include focus-ring;
+
+  &:hover {
+    background: #029a5b;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba($color-green, 0.45);
+  }
+}
+
+// ---- Burger & menu mobile ---------------------------------------------------
+.burger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0.5rem;
+  @include focus-ring;
+
+  @include desktop {
+    display: none;
+  }
+
+  span {
+    width: 22px;
+    height: 2px;
+    background: #faf7ee;
+    border-radius: 2px;
+  }
+}
+
+.mobile {
+  overflow: hidden;
+  background: rgba(8, 42, 24, 0.97);
+  backdrop-filter: $backdrop-blur;
+  border-top: 1px solid rgba(250, 247, 238, 0.08);
+
+  ul {
+    @include container;
+    @include flex(column, flex-start, stretch, 0.2rem);
+    padding-block: 1rem;
+  }
+}
+
+.mobileLink {
+  display: block;
+  padding: 0.65rem 0.4rem;
+  color: rgba(250, 247, 238, 0.9);
+  font-size: 0.95rem;
+  border-radius: $radius-sm;
+
+  &:hover {
+    background: rgba($color-gold, 0.12);
+    color: #fff;
+  }
+}
+
+.mobile .cta {
+  margin-top: 0.6rem;
+  justify-content: center;
+}

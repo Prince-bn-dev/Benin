@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 430">
+  <defs>
+    <linearGradient id="skinA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#96683c"/><stop offset="1" stop-color="#5f3d20"/>
+    </linearGradient>
+    <linearGradient id="wrapA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e3b505"/><stop offset="1" stop-color="#b31226"/>
+    </linearGradient>
+    <linearGradient id="dressA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d4a2c"/><stop offset="1" stop-color="#082a18"/>
+    </linearGradient>
+  </defs>
+
+  <!-- buste -->
+  <path d="M60 430 C58 340 96 292 152 272 L196 272 C252 292 288 340 286 430 Z" fill="url(#dressA)"/>
+  <!-- col brodé -->
+  <path d="M96 430 C100 366 122 330 165 320 C208 330 230 366 234 430 Z" fill="#e3b505" opacity=".22"/>
+  <path d="M112 430 C116 380 136 350 165 344 C194 350 214 380 218 430 Z" fill="none" stroke="#e3b505" stroke-width="3" opacity=".55"/>
+
+  <!-- cou -->
+  <path d="M136 220 L136 286 C148 296 182 296 194 286 L194 220 Z" fill="#54351b"/>
+
+  <!-- tête, profil gauche regardant à droite -->
+  <path d="M96 128
+           C96 84 122 56 158 54
+           C196 52 220 78 224 112
+           L226 122
+           C230 126 234 132 232 138
+           C236 142 240 150 234 156
+           C238 164 236 172 228 174
+           C226 186 218 194 206 196
+           C196 210 186 218 172 222
+           L136 224
+           C110 208 96 172 96 128 Z"
+        fill="url(#skinA)"/>
+
+  <!-- œil -->
+  <path d="M186 132 C192 126 202 126 208 132" stroke="#2c1c0e" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- sourcil -->
+  <path d="M182 116 C192 110 204 110 212 116" stroke="#2c1c0e" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- bouche -->
+  <path d="M226 178 C222 180 218 180 214 178" stroke="#2c1c0e" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- oreille + grand disque -->
+  <path d="M120 150 C112 142 112 158 120 166 C126 172 130 164 126 156 Z" fill="#4a2d15"/>
+  <circle cx="118" cy="188" r="17" fill="#e3b505"/>
+  <circle cx="118" cy="188" r="9" fill="#b31226"/>
+  <circle cx="118" cy="188" r="3.5" fill="#f7d774"/>
+
+  <!-- coiffe/turban -->
+  <path d="M92 118 C88 62 130 34 164 36 C206 38 228 68 226 104 C210 88 196 82 168 80 C136 78 108 92 92 118 Z" fill="url(#wrapA)"/>
+  <path d="M92 118 C108 92 136 78 168 80 C196 82 210 88 226 104 L226 118 C206 100 138 96 92 118 Z" fill="#8a5f1d" opacity=".65"/>
+  <g stroke="#f7d774" stroke-width="3" fill="none" opacity=".8">
+    <path d="M104 92 C130 66 190 60 218 92"/>
+    <path d="M100 104 C132 78 192 72 222 104"/>
+  </g>
+
+  <!-- scarifications et collier -->
+  <g stroke="#3a2412" stroke-width="2.5" opacity=".7">
+    <path d="M150 236 L150 250 M160 234 L160 252 M170 234 L170 250"/>
+  </g>
+  <g fill="none" stroke="#e3b505" stroke-width="4">
+    <path d="M120 262 C146 276 184 276 210 262"/>
+  </g>
+  <g fill="#b31226">
+    <circle cx="126" cy="266" r="4"/><circle cx="146" cy="272" r="4"/>
+    <circle cx="165" cy="274" r="4"/><circle cx="184" cy="272" r="4"/>
+    <circle cx="204" cy="266" r="4"/>
+  </g>
+</svg>

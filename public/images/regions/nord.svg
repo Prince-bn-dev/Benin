@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 224" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="nord-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2dc9e"/><stop offset="1" stop-color="#d9b26a"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="224" fill="url(#nord-sky)"/>
+  <path d="M0 150 L55 84 L95 132 L140 70 L200 140 L245 96 L300 150 L300 224 L0 224 Z" fill="#8a6a3a"/>
+  <path d="M0 168 L70 116 L130 164 L190 112 L260 170 L300 138 L300 224 L0 224 Z" fill="#6d5228"/>
+  <rect y="180" width="300" height="44" fill="#a8873f"/>
+  <path d="M30 200 q14 -26 28 0 Z" fill="#5c7a3a"/>
+  <path d="M210 204 q12 -22 24 0 Z" fill="#5c7a3a"/>
+  <circle cx="252" cy="44" r="20" fill="#fdf3d0" opacity=".85"/>
+</svg>

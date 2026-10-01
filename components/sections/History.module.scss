@@ -1,0 +1,174 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.section {
+  @include section-padding;
+  background: $color-bg;
+  overflow: hidden;
+}
+
+.inner {
+  @include container;
+  @include grid-cols(1.05fr 1fr, clamp(2rem, 6vw, 5rem));
+  align-items: center;
+
+  @include tablet {
+    @include grid-cols(1fr, 2.4rem);
+  }
+}
+
+.media {
+  position: relative;
+}
+
+.figure {
+  position: relative;
+  display: grid;
+  place-items: center;
+
+  // Halo doré derrière les statues, comme dans le design
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 6%;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 50% 42%,
+      rgba($color-gold, 0.4),
+      rgba($color-gold-deep, 0.16) 55%,
+      transparent 72%
+    );
+    filter: blur(6px);
+  }
+}
+
+.img {
+  position: relative;
+  width: min(100%, 560px);
+  height: auto;
+}
+
+.caption {
+  position: relative;
+  margin-top: -1.4rem;
+  margin-left: clamp(0rem, 3vw, 2rem);
+  background: rgba(15, 24, 18, 0.88);
+  backdrop-filter: blur(8px);
+  border-radius: $radius-md;
+  padding: 0.9rem 1.2rem;
+  max-width: 26rem;
+  box-shadow: $shadow-md;
+}
+
+.captionTitle {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: $color-gold;
+  margin-bottom: 0.2rem;
+}
+
+.captionText {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(247, 244, 234, 0.85);
+}
+
+.body {
+  @include flex(column, flex-start, flex-start, 1rem);
+}
+
+.overline {
+  @include overline($color-red);
+  &::before {
+    display: none;
+  }
+}
+
+.title {
+  @include display($fs-h2, $color-text);
+}
+
+.text {
+  color: $color-text-muted;
+  line-height: 1.75;
+  max-width: 54ch;
+}
+
+.stats {
+  width: 100%;
+  @include grid-cols(repeat(3, minmax(0, 1fr)), 1rem);
+  border-top: 1px solid rgba(28, 36, 32, 0.14);
+  padding-top: 1.4rem;
+  margin-top: 0.6rem;
+
+  @include mobile {
+    @include grid-cols(1fr, 1.1rem);
+  }
+}
+
+// Chiffres tricolores vert / or / rouge, comme dans le design
+.stat:nth-child(1) .statValue {
+  color: $color-green-deep;
+}
+
+.stat:nth-child(2) .statValue {
+  color: $color-gold-deep;
+}
+
+.stat:nth-child(3) .statValue {
+  color: $color-red;
+}
+
+.stat {
+  @include flex(column, flex-start, flex-start, 0.25rem);
+}
+
+.statValue {
+  font-family: $font-display;
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  color: $color-red;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-text-muted;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fdfbf4;
+  background: $color-green-deep;
+  border-radius: $radius-sm;
+  padding: 0.85rem 1.4rem;
+  transition:
+    transform $transition-fast,
+    box-shadow $transition-fast,
+    background $transition-fast;
+
+  &:hover {
+    background: $color-green;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+
+    span {
+      transform: translateX(4px);
+    }
+  }
+
+  span {
+    transition: transform $transition-fast;
+  }
+
+  @include focus-ring;
+}

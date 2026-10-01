@@ -1,0 +1,126 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.section {
+  position: relative;
+  background:
+    radial-gradient(
+      720px 300px at 50% 8%,
+      rgba($color-gold, 0.1),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #14100c, #0b0908);
+  color: #fdfbf4;
+  border-block: 1px solid rgba($color-gold, 0.25);
+  overflow: hidden;
+
+  // Visage de masque en texture, comme dans le design
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: url("/images/masque.png");
+    background-repeat: no-repeat;
+    background-position: center 42%;
+    filter: brightness(0.5) saturate(0.7);
+    mask-image: radial-gradient(60% 90% at 50% 50%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(
+      60% 90% at 50% 50%,
+      #000 30%,
+      transparent 75%
+    );
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        560px 260px at 8% 96%,
+        rgba($color-red, 0.16),
+        transparent 60%
+      ),
+      radial-gradient(
+        560px 260px at 92% 96%,
+        rgba($color-green, 0.2),
+        transparent 60%
+      );
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.inner {
+  @include container;
+  padding-block: clamp(3.4rem, 8vw, 6.5rem);
+  text-align: center;
+}
+
+.quote {
+  @include display(clamp(2rem, 5.4vw, 3.9rem), #fdfbf4);
+  font-weight: 600;
+  line-height: 1.14;
+  max-width: 22ch;
+  margin-inline: auto;
+  perspective: 600px;
+}
+
+.word {
+  display: inline-block;
+  margin-inline: 0.14em;
+}
+
+.gold {
+  color: $color-gold;
+}
+
+.author {
+  margin-top: 1.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: rgba(253, 251, 244, 0.66);
+}
+
+.values {
+  margin-top: clamp(1.8rem, 4vw, 3rem);
+  @include flex(row, center, center, clamp(1rem, 3vw, 3rem));
+
+  @include mobile {
+    flex-wrap: wrap;
+    gap: 0.9rem 1.6rem;
+  }
+}
+
+.value {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(253, 251, 244, 0.85);
+  position: relative;
+
+  // points dorés séparateurs (sauf après le dernier)
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: calc(-0.5 * clamp(1rem, 3vw, 3rem));
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $color-gold;
+    transform: translate(50%, -50%);
+
+    @include mobile {
+      display: none;
+    }
+  }
+}

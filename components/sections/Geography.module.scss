@@ -1,0 +1,237 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  @include section-padding;
+  background: $color-bg;
+}
+
+.inner {
+  @include container;
+}
+
+.layout {
+  @include grid-cols(1fr 1fr, clamp(1.6rem, 4vw, 3.5rem));
+  align-items: start;
+
+  @include tablet {
+    @include grid-cols(1fr, 2rem);
+  }
+}
+
+// ---- Cartes régions ----------------------------------------------------------
+.cards {
+  @include flex(column, flex-start, stretch, 1.1rem);
+}
+
+.card {
+  border-radius: $radius-md;
+  padding: clamp(0.9rem, 1.8vw, 1.2rem);
+  color: #fdfbf4;
+  box-shadow: $shadow-md;
+  transition: transform $transition-med, box-shadow $transition-med;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.green {
+  background: linear-gradient(140deg, #0d4a2c, #0a3a22);
+}
+
+.gold {
+  background: linear-gradient(140deg, #d9a410, #b8860b);
+}
+
+.red {
+  background: linear-gradient(140deg, #b31226, #8f0e1e);
+}
+
+.cardHead {
+  @include flex(row, space-between, flex-start, 0.8rem);
+  margin-bottom: 0.9rem;
+}
+
+.cardTitles {
+  @include flex(row, flex-start, center, 0.6rem);
+}
+
+.cardIcon {
+  @include flex-center;
+  width: 34px;
+  height: 34px;
+  border-radius: $radius-sm;
+  background: rgba(253, 251, 244, 0.16);
+  font-size: 1rem;
+}
+
+.cardName {
+  font-family: $font-body;
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+.cardSub {
+  font-size: 0.74rem;
+  opacity: 0.88;
+}
+
+.badge {
+  flex-shrink: 0;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: rgba(253, 251, 244, 0.18);
+  border: 1px solid rgba(253, 251, 244, 0.35);
+  border-radius: $radius-pill;
+  padding: 0.3rem 0.6rem;
+}
+
+.cardBody {
+  @include flex(row, flex-start, stretch, 0.8rem);
+}
+
+.photo {
+  flex: 0 0 38%;
+  border-radius: $radius-sm;
+  overflow: hidden;
+}
+
+.photoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform $transition-med;
+}
+
+.card:hover .photoImg {
+  transform: scale(1.05);
+}
+
+.depts {
+  flex: 1;
+  @include flex(column, flex-start, stretch, 0.45rem);
+}
+
+.dept {
+  width: 100%;
+  @include flex(row, flex-start, center, 0.55rem);
+  background: rgba(253, 251, 244, 0.14);
+  border: 1px solid rgba(253, 251, 244, 0.22);
+  border-radius: $radius-sm;
+  padding: 0.5rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fdfbf4;
+  text-align: left;
+  transition:
+    background $transition-fast,
+    transform $transition-fast;
+  @include focus-ring(#fdfbf4);
+
+  &:hover {
+    background: rgba(253, 251, 244, 0.26);
+    transform: translateX(3px);
+  }
+}
+
+.deptActive {
+  background: rgba(253, 251, 244, 0.34);
+}
+
+.deptGlyph {
+  font-size: 0.7rem;
+  opacity: 0.85;
+}
+
+.deptName {
+  flex: 1;
+}
+
+.chev {
+  opacity: 0.75;
+}
+
+// ---- Carte illustrée -----------------------------------------------------------
+.mapWrap {
+  position: sticky;
+  top: calc($nav-height + 1rem);
+
+  @include tablet {
+    position: static;
+  }
+}
+
+.map {
+  position: relative;
+  width: 100%;
+}
+
+.mapImg {
+  width: 100%;
+  height: auto;
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+  background: #f7f1e3;
+}
+
+.pin {
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 2;
+}
+
+.pinHalo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border-radius: 50%;
+  background: rgba(227, 181, 5, 0.22);
+  opacity: 0;
+  transition: opacity $transition-med;
+}
+
+.pinDot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 13px;
+  height: 13px;
+  margin: -6.5px 0 0 -6.5px;
+  border-radius: 50%;
+  border: 2.5px solid #fdfbf4;
+  box-shadow: 0 2px 8px rgba(15, 28, 20, 0.45);
+  transition: transform $transition-fast;
+}
+
+.pinActive {
+  .pinHalo {
+    opacity: 1;
+    animation: pin-pulse 1.4s infinite;
+  }
+
+  .pinDot {
+    transform: scale(1.35);
+  }
+}
+
+@keyframes pin-pulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}

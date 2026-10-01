@@ -1,0 +1,59 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.bar {
+  background: linear-gradient(180deg, #0e3b24, #0a2e1c);
+  border-block: 1px solid rgba($color-gold, 0.25);
+}
+
+.list {
+  @include container;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  padding-block: clamp(1.4rem, 3vw, 2.2rem);
+
+  @include tablet {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 1.4rem;
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.item {
+  @include flex(column, center, center, 0.35rem);
+  text-align: center;
+  position: relative;
+
+  // séparateurs verticaux discrets
+  &:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15%;
+    height: 70%;
+    width: 1px;
+    background: rgba($color-gold, 0.22);
+
+    @include tablet {
+      display: none;
+    }
+  }
+}
+
+.value {
+  font-family: $font-display;
+  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+  color: $color-gold;
+  line-height: 1;
+}
+
+.label {
+  font-size: clamp(0.62rem, 1.1vw, 0.78rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(253, 251, 244, 0.88);
+}

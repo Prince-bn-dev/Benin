@@ -1,0 +1,55 @@
+
+> benin-tourisme@0.1.0 dev
+> next dev -p 7308
+
+   ▲ Next.js 15.5.25
+   - Local:        http://localhost:7308
+   - Network:      http://192.168.1.64:7308
+
+ ✓ Starting...
+ ✓ Ready in 4.5s
+ ○ Compiling / ...
+ ✓ Compiled / in 17.7s (1566 modules)
+ GET / 200 in 19355ms
+ GET / 200 in 411ms
+ GET / 200 in 436ms
+ GET / 200 in 631ms
+ ✓ Compiled in 4.5s (1436 modules)
+ GET / 200 in 667ms
+ ✓ Compiled in 989ms (1436 modules)
+ GET / 200 in 184ms
+ GET / 200 in 812ms
+ ✓ Compiled in 2.8s (1426 modules)
+ GET / 200 in 336ms
+ GET / 200 in 1865ms
+ GET / 200 in 433ms
+ GET / 200 in 546ms
+ ✓ Compiled in 5.6s (1436 modules)
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 6.9s (1773 modules)
+ GET / 500 in 8875ms
+ GET / 500 in 9611ms
+ ✓ Compiled in 3.9s (1783 modules)
+ GET / 200 in 3094ms
+ ✓ Compiled in 4.9s (1792 modules)
+ GET / 200 in 1683ms
+ GET / 200 in 1939ms
+ ✓ Compiled in 1842ms (1792 modules)
+ GET / 200 in 218ms
+ ✓ Compiled in 3.2s (1792 modules)
+ GET / 200 in 301ms
+ ✓ Compiled in 1335ms (1783 modules)
+ GET / 200 in 139ms
+ ✓ Compiled in 1209ms (1773 modules)
+ GET / 200 in 1007ms
+ ✓ Compiled in 3.9s (1773 modules)
+ GET / 200 in 3743ms
+ GET / 200 in 482ms
+ GET / 200 in 528ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 4.6s (1778 modules)
+ GET /_next/webpack-hmr 404 in 5105ms
+ GET / 200 in 595ms
+ GET / 200 in 446ms
+ GET / 200 in 768ms
+ GET / 200 in 696ms
