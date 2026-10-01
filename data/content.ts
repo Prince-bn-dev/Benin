@@ -89,7 +89,7 @@ export const hero = {
     "Une terre d'histoire, de culture, de création et d'avenir. Découvrez le Bénin, éternellement vivant.",
   ctaPrimary: "Explorer le Bénin",
   ctaSecondary: "Notre histoire",
-  image: "/images/hero-flag.png",
+  image: "/images/banniere-accueil.png",
 };
 
 // ---- Barre de statistiques ---------------------------------------------------
@@ -113,7 +113,7 @@ export const portals: Portal[] = [
     num: "01",
     name: "Héritage",
     text: "Royaume du Danxomè, vodun, récades et tissus appliqués : la mémoire vivante d'un peuple.",
-    image: "/images/portals/drapeau.png", // tissu appliqué, extrait du design
+    image: "/images/portals/tissu-heritage.png",
     variant: "tall-left",
   },
   {
@@ -127,7 +127,7 @@ export const portals: Portal[] = [
     num: "03",
     name: "Vivre & entreprendre",
     text: "Zone industrielle de Glo-Djigbé, coton, port de Cotonou, diaspora : une économie qui se réinvente.",
-    image: "/images/portals/entreprise.png",
+    image: "/images/portals/entrepreneuriat.png",
     variant: "mid",
   },
   {
@@ -237,8 +237,8 @@ export const amazonsSection = {
   overline: "FORCE & ÉLÉGANCE",
   title: "L'âme du Bénin est une femme.",
   text: "Des redoutables Amazones du Dahomey aux commerçantes dynamiques des marchés de Dantokpa, la femme béninoise est le pilier de la nation. Gardienne des traditions et moteur de l\u2019économie, elle incarne une résilience et une grâce qui forgent l\u2019identité du pays.",
-  imageLeft: "/images/profil-femme-b.webp",
-  imageRight: "/images/profil-femme-a.png",
+  imageLeft: "/images/amazones-gauche.webp",
+  imageRight: "/images/amazones-droite.png",
 };
 
 export const amazonePoints: AmazonePoint[] = [

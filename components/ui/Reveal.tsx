@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, type Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import type { ReactNode } from 'react';
 
 // ==========================================================================
@@ -45,45 +45,6 @@ export default function Reveal({
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once, amount }}
       transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-// Conteneur à apparition échelonnée (stagger-children)
-export const staggerContainer: Variants = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-  },
-};
-
-export const staggerItem: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-export function RevealStagger({
-  children,
-  className,
-  amount = 0.2,
-}: {
-  children: ReactNode;
-  className?: string;
-  amount?: number;
-}) {
-  return (
-    <motion.div
-      className={className}
-      variants={staggerContainer}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount }}
     >
       {children}
     </motion.div>

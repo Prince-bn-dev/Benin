@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use "variables" as *;
 
 // ==========================================================================
 // MIXINS RÉUTILISABLES — breakpoints, layout, typographie, effets
@@ -30,7 +30,12 @@
 }
 
 // ---- Flexbox ---------------------------------------------------------------
-@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 1rem) {
+@mixin flex(
+  $direction: row,
+  $justify: flex-start,
+  $align: stretch,
+  $gap: 1rem
+) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
@@ -45,12 +50,6 @@
 }
 
 // ---- Grid ------------------------------------------------------------------
-@mixin grid-auto($min: 260px, $gap: 1.5rem) {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
-  gap: $gap;
-}
-
 @mixin grid-cols($columns, $gap: 1.5rem) {
   display: grid;
   grid-template-columns: $columns;
@@ -90,7 +89,7 @@
   color: $color;
 
   &::before {
-    content: '';
+    content: "";
     width: 26px;
     height: 2px;
     background: currentColor;
